@@ -48,6 +48,7 @@ The following volumes are created and exposed with the images:
 To persist data it is recommended that you pre-create directories and map them via the Docker run command.
 
 **DataStax recommends the following mounts be made**
+
 For DSE: `/var/lib/cassandra/data`  `/var/lib/cassandra/commit_logs` and `/var/lib/cassandra/saved_caches`
 
 For OpsCenter: `/var/lib/opscenter`
@@ -96,7 +97,7 @@ Example: Start DSE in Cassandra only mode
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4
 ```
-You might replace 5.1.4 with any other version available at the [Docker Hub tags](https://hub.docker.com/u/datastax/datastax-enterprise-node/tags/0.
+You might replace 5.1.4 with any other version available at the [Docker Hub tags](https://hub.docker.com/u/datastax/datastax-enterprise-node/tags/).
 
 **Example: Start a Graph Node**
 
@@ -124,7 +125,9 @@ You can also use combinations of those switches. For more examples, see the Star
 
 ### Exposing Ports on the Docker Host
 
-Chances are you'll want to expose some ports on the Docker host so that you can talk to DSE from outside of Docker (for example, from code running on your local machine). You can do that using the -p switch when calling docker run and the most common port you'll probably want to expose is `9042` which is where CQL clients communicate. For example:
+Chances are you'll want to expose some ports on the Docker host so that you can talk to DSE from outside of Docker (for example, from code running on a machine outside of the host). You can do that using the -p switch when calling docker run and the most common port you'll probably want to expose is `9042` which is where CQL clients communicate. 
+
+**For example**:
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d -p 9042:9042 datastax/datastax-enterprise-node:5.1.4
@@ -135,10 +138,14 @@ This will expose the container's CQL client port (9042) on the host at port 9042
 
 ### Environment Variables
 
-The following environment variables can be set at runtime to override configuration. Setting the following values will override the corresponding settings in the `cassandra.yaml` configuration file:
+When you start the DSE image, you can adjust the configuration of the Cassandra instance by passing one or more environment variables on the `docker run` command line
 
-* `LISTEN_ADDRESS`: The IP address to listen for connections from other nodes. Defaults to the container's IP address.
-* `BROADCAST_ADDRESS`: The IP address to advertise to other nodes. Defaults to the same value as the `LISTEN_ADDRESS`.
+### `LISTEN_ADDRESS` 
+The IP address to listen for connections from other nodes. Defaults to the container's IP address.
+
+### `BROADCAST_ADDRESS`
+The IP address to advertise to other nodes. Defaults to the same value as the `LISTEN_ADDRESS`.
+
 * `RPC_ADDRESS`: The IP address to listen for client/driver connections. Defaults to 0.0.0.0 (i.e. wildcard).
 * `BROADCAST_RPC_ADDRESS`: The IP address to advertise to clients/drivers. Defaults to the same value as the `BROADCAST_ADDRESS`.
 * `SEEDS`: The comma-delimited list of seed nodes for the cluster. Defaults to this node's `BROADCAST_ADDRESS` if not set and will only be set the first time the node is started.
