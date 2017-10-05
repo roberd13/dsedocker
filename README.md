@@ -49,8 +49,11 @@ To persist data it is recommended that you pre-create directories and map them v
 
 **DataStax recommends the following mounts be made**
 For DSE: `/var/lib/cassandra/data`  `/var/lib/cassandra/commit_logs` and `/var/lib/cassandra/saved_caches`
+
 For OpsCenter: `/var/lib/opscenter`
+
 For Studio: `/var/lib/datastax-studio`
+
 To mount a volume, you would use the `-v` flag with the docker run command when starting the container with the following syntax 
 
 ```
