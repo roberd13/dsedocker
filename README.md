@@ -27,11 +27,11 @@ In order to use these images, it is necessary to accept the terms of the DataSta
 
 # Configuration
 
-DataStax has made it easy to make config changes by creating a script that looks in the exposed Volume `/mnt/conf` for any added configuration files and loads them at container start. 
+DataStax has made it easy to make configuration changes by creating a script that looks in the exposed Volume `/mnt/conf` for any added configuration files and loads them at container start. 
 
-To take advantage of this feature, you will need to create a mount directory on your host and mount the exposed Volume `/mnt/conf`, place you modified config files in the mount directory on your host machine and start the container. 
+To take advantage of this feature, you will need to create a mount directory on your host and mount the exposed Volume `/mnt/conf`, place you modified configuration files in the mount directory on your host machine and start the container. 
 
-These files will override the existing config files.  The configs must contain all the values to be used and use the dse naming convention such as cassandra.yaml, dse.yaml, opscenterd.conf 
+These files will override the existing configuration files.  The configs must contain all the values to be used along with using the dse naming convention such as cassandra.yaml, dse.yaml, opscenterd.conf 
 
 For a full list of configuration files please visit *some link here*
 
