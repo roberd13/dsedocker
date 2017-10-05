@@ -24,47 +24,6 @@ Understanding of Docker and containers
 The images are available on Docker Hub as: [datastax/datastax-enterprise-node](https://hub.docker.com/r/datastax/datastax-enterprise-node) [datastax/datastax-enterprise-opscenter](https://hub.docker.com/r/datastax/datastax-enterprise-opscenter) [datastax/datastax-enterprise-studio](https://hub.docker.com/r/datastax/datastax-enterprise-studio)
 
 
-### Volumes
-
-The following volumes are created and exposed with the images:  
-
-**DSE**
-
-* `/var/lib/cassandra`: Data from Cassandra
-* `/var/lib/spark`: Data from DSE Analytics w/ Spark
-* `/var/lib/dsefs`: Data from DSEFS
-* `/var/log/cassandra`: Logs from Cassandra
-* `/var/log/spark`: Logs from Spark
-* `/opt/dse/resources`: Most configuration files including cassandra.yaml, dse.yaml, and more can be found here.
-
-**OpsCenter**
-
-* `/var/lib/opscenter`: OpsCenter data
-
-**Studio**
-
-* `/var/lib/datastax-studio`: Studio Data
-
-To persist data it is recommended that you pre-create directories and map them via the Docker run command.
-
-**DataStax recommends the following mounts be made**
-
-For DSE: `/var/lib/cassandra/data`  `/var/lib/cassandra/commit_logs` and `/var/lib/cassandra/saved_caches`
-
-For OpsCenter: `/var/lib/opscenter`
-
-For Studio: `/var/lib/datastax-studio`
-
-To mount a volume, you would use the `-v` flag with the docker run command when starting the container with the following syntax 
-
-```
-docker run -v <some_root_dir>:<container_volume>:<options>
-```
-**For example let’s mount the cassandra data directory**
-
-```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /opt/lib/cassandra:/var/lib/cassandra datastax-docker-images.jfrog.io/datastax/datastax-enterprise-node:5.1.2
-```
 ### Usage
 
 In order to use these images, it is necessary to accept the terms of the DataStax license. This is done by setting the environment variable `DS_LICENSE` to the value accept when running containers based on the produced images. To show the license included in the images, set the variable `DS_LICENSE` to the value `accept`. *The images will not start without the variable set to the accept value.*
@@ -146,21 +105,47 @@ The IP address to listen for connections from other nodes. Defaults to the conta
 ### `BROADCAST_ADDRESS`
 The IP address to advertise to other nodes. Defaults to the same value as the `LISTEN_ADDRESS`.
 
-* `RPC_ADDRESS`: The IP address to listen for client/driver connections. Defaults to 0.0.0.0 (i.e. wildcard).
-* `BROADCAST_RPC_ADDRESS`: The IP address to advertise to clients/drivers. Defaults to the same value as the `BROADCAST_ADDRESS`.
-* `SEEDS`: The comma-delimited list of seed nodes for the cluster. Defaults to this node's `BROADCAST_ADDRESS` if not set and will only be set the first time the node is started.
-* `START_RPC`: Whether to start the Thrift RPC server. Will leave the default in the `cassandra.yaml` file if not set.
-* `CLUSTER_NAME`: The name of the cluster. Will leave the default in the `cassandra.yaml` file if not set.
-* `NUM_TOKENS`: The number of tokens randomly assigned to this node. Will leave the default in the `cassandra.yaml` file if not set.
-* `DC`: datacenter name, default: Cassandra
-* `RACK`: rack name, default: rack1
-* `OPSCENTER_IP`: optional, the address of OpsCenter instance we would like to use for DSE management it can be specified via linking the OpsCenter container using opscenter as its name.
+### `RPC_ADDRESS` 
+The IP address to listen for client/driver connections. Defaults to 0.0.0.0 (i.e. wildcard).
+
+### `BROADCAST_RPC_ADDRESS` 
+The IP address to advertise to clients/drivers. Defaults to the same value as the `BROADCAST_ADDRESS`.
+
+### `SEEDS` 
+The comma-delimited list of seed nodes for the cluster. Defaults to this node's `BROADCAST_ADDRESS` if not set and will only be set the first time the node is started.
+
+### `START_RPC`
+Whether to start the Thrift RPC server. Will leave the default in the `cassandra.yaml` file if not set.
+
+### `CLUSTER_NAME`
+The name of the cluster. Will leave the default in the `cassandra.yaml` file if not set.
+
+### `NUM_TOKENS`
+The number of tokens randomly assigned to this node. Will leave the default in the `cassandra.yaml` file if not set.
+
+### `DC`
+Datacenter name, default: Cassandra
+
+### `RACK`
+Rack name, default: rack1
+
+### `OPSCENTER_IP`
+Optional, the address of OpsCenter instance we would like to use for DSE management it can be specified via linking the OpsCenter container using opscenter as its name.
 
 
 
-### Logging
+### Container shell access and viewing Cassandra logs
 
-You can view logs via Docker's container logs:
+**Attaching to running container**
+
+If you used the -d flag to start you containers in the background, instead of using docker exec for individual commands you may want a bash shell to run commands. To do this use 
+
+```
+docker exec -it <container_name> bash
+```
+To exit the shell without stopping the container use *ctl P ctl Q*
+
+**You can view logs via Docker's container logs**
 
 ```
 docker logs my-dse
@@ -187,7 +172,7 @@ With a node running, use` docker exec` to run other tools.
 docker exec -it my-dse nodetool status
 ```
 
-Or to connect with `cqlsh`:
+`cqlsh`:
 
 ```
 docker exec -it my-dse cqlsh
@@ -195,13 +180,6 @@ docker exec -it my-dse cqlsh
 
 See [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/) for further info on usage/configuration 
 
-### Attaching to running container
-If you used the -d flag to start you containers in the background, instead of using docker exec for individual commands you may want a bash shell to run commands. To do this use 
-
-```
-docker exec -it <container_name> bash
-```
-To exit the shell without stopping the container use *ctl P ctl Q*
 
 **For example**
 
@@ -236,7 +214,49 @@ docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d d
 
 Open your browser and point to `http://DOCKER_HOST_IP:9091`, create the new connection using my-dse as the hostname. Check [Studio docs](http://docs.datastax.com/en/dse/5.1/dse-dev/datastax_enterprise/studio/stdToc.html) for further instructions.
 
+### Caveats
 
+### Where to Store Data
+
+The following volumes are created and exposed with the images:  
+
+**DSE**
+
+* `/var/lib/cassandra`: Data from Cassandra
+* `/var/lib/spark`: Data from DSE Analytics w/ Spark
+* `/var/lib/dsefs`: Data from DSEFS
+* `/var/log/cassandra`: Logs from Cassandra
+* `/var/log/spark`: Logs from Spark
+* `/opt/dse/resources`: Most configuration files including cassandra.yaml, dse.yaml, and more can be found here.
+
+**OpsCenter**
+
+* `/var/lib/opscenter`: OpsCenter data
+
+**Studio**
+
+* `/var/lib/datastax-studio`: Studio Data
+
+To persist data it is recommended that you pre-create directories and map them via the Docker run command.
+
+**DataStax recommends the following mounts be made**
+
+For DSE: `/var/lib/cassandra/data`  `/var/lib/cassandra/commit_logs` and `/var/lib/cassandra/saved_caches`
+
+For OpsCenter: `/var/lib/opscenter`
+
+For Studio: `/var/lib/datastax-studio`
+
+To mount a volume, you would use the `-v` flag with the docker run command when starting the container with the following syntax 
+
+```
+docker run -v <some_root_dir>:<container_volume>:<options>
+```
+**For example let’s mount the cassandra data directory**
+
+```
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /opt/lib/cassandra:/var/lib/cassandra datastax-docker-images.jfrog.io/datastax/datastax-enterprise-node:5.1.2
+```
 
 ### Using Docker Compose for Automated Provisioning
 
