@@ -1,3 +1,15 @@
+###What is DSE?
+
+Built on the 
+best distribution of Apache Cassandra™, DataStax Enterprise is the always-on 
+data platform designed to allow you to effortlessly build and scale your apps, 
+integrating graph, search, analytics, administration, developer tooling, 
+and monitoring into a single unified platform. We power your 
+apps' real-time moments so you can create instant insights 
+and delightful customer experiences.
+
+[!(https://en.wikipedia.org/wiki/File:DataStax_Logo.png)]
+
 ### Getting Started with DataStax and Docker
 
 DSE-Docker is intended to be used for Development and testing purposes only. You can use the Docker-DSE environment to learn DSE, OpsCenter and DataStax Studio, try new ideas, test and demonstrate your application.
