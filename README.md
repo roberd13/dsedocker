@@ -10,6 +10,8 @@ and delightful customer experiences.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/e/e5/DataStax_Logo.png)
 
+
+
 ### `Getting Started with DataStax and Docker`
 
 DSE-Docker is intended to be used for Development and testing purposes only. You can use the Docker-DSE environment to learn DSE, OpsCenter and DataStax Studio, try new ideas, test and demonstrate your application.
@@ -23,7 +25,18 @@ Understanding of Docker and containers
 
 In order to use these images, it is necessary to accept the terms of the DataStax license. This is done by setting the environment variable `DS_LICENSE` to the value accept when running containers based on the produced images. To show the license included in the images, set the variable `DS_LICENSE` to the value `accept`. *The images will not start without the variable set to the accept value.*
 
+# Configuration
 
+DataStax has made it easy to make config changes by creating a script that looks in the exposed Volume `/mnt/conf` for any added configuration files and loads them at container start. 
+
+To take advantage of this feature, you will need to create a mount directory on your host and mount the exposed Volume `/mnt/conf`, place you modified config files in the mount directory on your host machine and start the container. 
+
+These files will override the existing config files.  The configs must contain all the values to be used and use the dse naming convention such as cassandra.yaml, dse.yaml, opscenterd.conf 
+
+For a full list of configuration files please visit <some link here>
+
+
+ 
 ### `Starting DSE nodes`
 
 The image's entrypoint script runs the command dse cassandra and will append any switches you provide to that command. So it's possible to start DSE in any of the other supported modes by adding switches to the end of your docker run command.
@@ -222,7 +235,7 @@ The following volumes are created and exposed with the images:
 * `/var/lib/dsefs`: Data from DSEFS
 * `/var/log/cassandra`: Logs from Cassandra
 * `/var/log/spark`: Logs from Spark
-* `/opt/dse/resources`: Most configuration files including cassandra.yaml, dse.yaml, and more can be found here.
+* `/mnt/conf`: Directory to add custom config files for the container to pickup.
 
 **OpsCenter**
 
@@ -232,7 +245,7 @@ The following volumes are created and exposed with the images:
 
 * `/var/lib/datastax-studio`: Studio Data
 
-To persist data it is recommended that you pre-create directories and map them via the Docker run command.
+To persist data it is recommended that you pre-create directories and map them via the Docker run command to.
 
 **DataStax recommends the following mounts be made**
 
@@ -242,7 +255,7 @@ For OpsCenter: `/var/lib/opscenter`
 
 For Studio: `/var/lib/datastax-studio`
 
-To mount a volume, you would use the `-v` flag with the docker run command when starting the container with the following syntax 
+To mount a volume, you would use the `-v` flag with the docker run command when starting the container with the following syntax.  
 
 ```
 docker run -v <some_root_dir>:<container_volume>:<options>
@@ -252,6 +265,8 @@ docker run -v <some_root_dir>:<container_volume>:<options>
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d  -v /opt/lib/cassandra:/var/lib/cassandra datastax-docker-images.jfrog.io/datastax/datastax-enterprise-node:5.1.2
 ```
+
+Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume)for more information on mounting Volumes
 
 ### `Using Docker Compose for Automated Provisioning`
 
