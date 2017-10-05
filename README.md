@@ -1,3 +1,5 @@
+<span style="color:blue">some *This is Blue italic.* text</span>
+
 # What is DSE?
 
 Built on the 
