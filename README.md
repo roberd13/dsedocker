@@ -1,4 +1,4 @@
-### What is DSE?
+### `What is DSE?`
 
 Built on the 
 best distribution of Apache Cassandra™, DataStax Enterprise is the always-on 
@@ -10,26 +10,26 @@ and delightful customer experiences.
 
 ![](https://upload.wikimedia.org/wikipedia/commons/e/e5/DataStax_Logo.png)
 
-### Getting Started with DataStax and Docker
+### `Getting Started with DataStax and Docker`
 
 DSE-Docker is intended to be used for Development and testing purposes only. You can use the Docker-DSE environment to learn DSE, OpsCenter and DataStax Studio, try new ideas, test and demonstrate your application.
 
-### Prerequisites
+### `Prerequisites`
 
 Install Docker based on instructions found [here](https://docs.docker.com/engine/installation/) for your environment . 
 Understanding of Docker and containers
 
-### Where to get the images
+### `Where to get the images`
 
 The images are available on Docker Hub as: [datastax/datastax-enterprise-node](https://hub.docker.com/r/datastax/datastax-enterprise-node) [datastax/datastax-enterprise-opscenter](https://hub.docker.com/r/datastax/datastax-enterprise-opscenter) [datastax/datastax-enterprise-studio](https://hub.docker.com/r/datastax/datastax-enterprise-studio)
 
 
-### Usage
+### `Usage`
 
 In order to use these images, it is necessary to accept the terms of the DataStax license. This is done by setting the environment variable `DS_LICENSE` to the value accept when running containers based on the produced images. To show the license included in the images, set the variable `DS_LICENSE` to the value `accept`. *The images will not start without the variable set to the accept value.*
 
 
-### Procedure for DSE
+### `Procedure for DSE`
 
 The image's entrypoint script runs the command dse cassandra and will append any switches you provide to that command. So it's possible to start DSE in any of the other supported modes by adding switches to the end of your docker run command.
 
@@ -82,7 +82,7 @@ In the container, this will run dse cassandra -s to start a search node.
 You can also use combinations of those switches. For more examples, see the Starting [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/operations/startStop/startDseStandalone.html).
 
 
-### Exposing Ports on the Docker Host
+### `Exposing Ports on the Docker Host`
 
 Chances are you'll want to expose some ports on the Docker host so that you can talk to DSE from outside of Docker (for example, from code running on a machine outside of the host). You can do that using the -p switch when calling docker run and the most common port you'll probably want to expose is `9042` which is where CQL clients communicate. 
 
@@ -95,46 +95,46 @@ docker run -e DS_LICENSE=accept --name my-dse -d -p 9042:9042 datastax/datastax-
 This will expose the container's CQL client port (9042) on the host at port 9042. For a list of the ports used by DSE, see the [Securing DataStax Enterprise ports documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secFirewallPorts.html).
 
 
-### Environment Variables
+### `Environment Variables`
 
 When you start the DSE image, you can adjust the configuration of the Cassandra instance by passing one or more environment variables on the `docker run` command line
 
-### `LISTEN_ADDRESS` 
+### LISTEN_ADDRESS 
 The IP address to listen for connections from other nodes. Defaults to the container's IP address.
 
-### `BROADCAST_ADDRESS`
+### BROADCAST_ADDRESS
 The IP address to advertise to other nodes. Defaults to the same value as the `LISTEN_ADDRESS`.
 
-### `RPC_ADDRESS` 
+### RPC_ADDRESS 
 The IP address to listen for client/driver connections. Defaults to 0.0.0.0 (i.e. wildcard).
 
-### `BROADCAST_RPC_ADDRESS` 
+### BROADCAST_RPC_ADDRESS 
 The IP address to advertise to clients/drivers. Defaults to the same value as the `BROADCAST_ADDRESS`.
 
-### `SEEDS` 
+### SEEDS 
 The comma-delimited list of seed nodes for the cluster. Defaults to this node's `BROADCAST_ADDRESS` if not set and will only be set the first time the node is started.
 
-### `START_RPC`
+### START_RPC
 Whether to start the Thrift RPC server. Will leave the default in the `cassandra.yaml` file if not set.
 
-### `CLUSTER_NAME`
+### CLUSTER_NAME
 The name of the cluster. Will leave the default in the `cassandra.yaml` file if not set.
 
-### `NUM_TOKENS`
+### NUM_TOKENS
 The number of tokens randomly assigned to this node. Will leave the default in the `cassandra.yaml` file if not set.
 
-### `DC`
+### DC
 Datacenter name, default: Cassandra
 
-### `RACK`
+### RACK
 Rack name, default: rack1
 
-### `OPSCENTER_IP`
+### OPSCENTER_IP
 Optional, the address of OpsCenter instance we would like to use for DSE management it can be specified via linking the OpsCenter container using opscenter as its name.
 
 
 
-### Container shell access and viewing Cassandra logs
+### `Container shell access and viewing Cassandra logs`
 
 **Attaching to running container**
 
@@ -167,7 +167,7 @@ You can also use your favorite viewer/editor for individual files
 docker exec -it my-dse less /var/log/cassandra/system.log
 ```
 
-### Starting DSE Tools
+### `Starting DSE Tools`
 
 With a node running, use` docker exec` to run other tools. 
 
@@ -188,7 +188,7 @@ docker exec -it my-dse cqlsh
 See [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/) for further info on usage/configuration 
 
 
-### Procedure for OpsCenter
+### `Procedure for OpsCenter`
 
 ### Starting OpsCenter
 
@@ -206,7 +206,7 @@ Open your browser and point to `http://DOCKER_HOST_IP:8888`, create the new conn
 See [OpsCenter documentation](http://docs.datastax.com/en/opscenter/6.1/) for further info on usage/configuration.
 
 
-### Procedure for Studio
+### `Procedure for Studio`
 
 ### Starting Studio
 
@@ -216,7 +216,7 @@ docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d d
 
 Open your browser and point to `http://DOCKER_HOST_IP:9091`, create the new connection using my-dse as the hostname. Check [Studio docs](http://docs.datastax.com/en/dse/5.1/dse-dev/datastax_enterprise/studio/stdToc.html) for further instructions.
 
-### Caveats
+### `Caveats`
 
 ### Where to Store Data
 
@@ -260,7 +260,7 @@ docker run -v <some_root_dir>:<container_volume>:<options>
 docker run -e DS_LICENSE=accept --name my-dse -d  -v /opt/lib/cassandra:/var/lib/cassandra datastax-docker-images.jfrog.io/datastax/datastax-enterprise-node:5.1.2
 ```
 
-### Using Docker Compose for Automated Provisioning
+### `Using Docker Compose for Automated Provisioning`
 
 Bootstrapping a multi-node cluster with OpsCenter and Studio can be elegantly automated with [Docker Compose](https://docs.docker.com/compose/). You can get sample `compose.yml` file here<link to>
 
