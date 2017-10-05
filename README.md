@@ -1,15 +1,19 @@
-Getting Started with DataStax and Docker
+### Getting Started with DataStax and Docker
+
 DSE-Docker is intended to be used for Development and testing purposes only. You can use the Docker-DSE environment to learn DSE, OpsCenter and DataStax Studio, try new ideas, test and demonstrate your application.
 
-Prerequisites
+### Prerequisites
+
 Install Docker based on instructions found [here](https://docs.docker.com/engine/installation/) for your environment . 
 Understanding of Docker and containers
 
-Where to get the images
+### Where to get the images
+
 The images are available on Docker Hub as: [datastax/datastax-enterprise-node](https://hub.docker.com/r/datastax/datastax-enterprise-node) [datastax/datastax-enterprise-opscenter](https://hub.docker.com/r/datastax/datastax-enterprise-opscenter) [datastax/datastax-enterprise-studio](https://hub.docker.com/r/datastax/datastax-enterprise-studio)
-Private repo
+
 
 ### Volumes
+
 The following volumes are created and exposed with the images:  
 
 **DSE**
@@ -50,7 +54,7 @@ docker run -e DS_LICENSE=accept --name my-dse -d  -v /opt/lib/cassandra:/var/lib
 In order to use these images, it is necessary to accept the terms of the DataStax license. This is done by setting the environment variable `DS_LICENSE` to the value accept when running containers based on the produced images. To show the license included in the images, set the variable `DS_LICENSE` to the value `accept`. *The images will not start without the variable set to the accept value.*
 
 
-### Procedure for starting DSE
+### Procedure for DSE
 
 The image's entrypoint script runs the command dse cassandra and will append any switches you provide to that command. So it's possible to start DSE in any of the other supported modes by adding switches to the end of your docker run command.
 
@@ -132,7 +136,7 @@ The following environment variables can be set at runtime to override configurat
 
 
 
-###Logging
+### Logging
 
 You can view logs via Docker's container logs:
 
@@ -140,15 +144,16 @@ You can view logs via Docker's container logs:
 docker logs my-dse
 ```
 You can also use your favorite viewer/editor for individual files
+
 `docker exec -it <container_name> <viewer/editor> <path_to_log>`
 
-For example  to view the system.log
+**For example**  to view the system.log
 
 ```
 docker exec -it my-dse less /var/log/cassandra/system.log
 ```
 
-###Starting DSE Tools
+### Starting DSE Tools
 
 With a node running, use` docker exec` to run other tools. 
 
@@ -183,7 +188,7 @@ docker exec -it my-dse bash
 ```
 ### Procedure for OpsCenter
 
-###Starting OpsCenter
+### Starting OpsCenter
 
 ```
 docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/datastax-enterprise-opscenter:6.5.0
