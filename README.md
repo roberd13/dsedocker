@@ -45,7 +45,8 @@ DSE start switches | Description
 -k | Optional: Starts an analytics node
 -g | Optional: Starts a graph node
 
-By default, DSE will start in Cassandra only mode. 
+By default, DSE will start in Cassandra only mode.
+
 Example: Start DSE in Cassandra only mode
 
 ```
