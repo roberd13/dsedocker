@@ -1,4 +1,4 @@
-###What is DSE?
+### What is DSE?
 
 Built on the 
 best distribution of Apache Cassandra™, DataStax Enterprise is the always-on 
@@ -8,7 +8,7 @@ and monitoring into a single unified platform. We power your
 apps' real-time moments so you can create instant insights 
 and delightful customer experiences.
 
-[!(https://en.wikipedia.org/wiki/File:DataStax_Logo.png)]
+!(https://en.wikipedia.org/wiki/File:DataStax_Logo.png)
 
 ### Getting Started with DataStax and Docker
 
