@@ -143,7 +143,14 @@ If you used the -d flag to start you containers in the background, instead of us
 ```
 docker exec -it <container_name> bash
 ```
-To exit the shell without stopping the container use *ctl P ctl Q*
+
+**For example**
+
+```
+docker exec -it my-dse bash
+```
+
+To exit the shell without stopping the container use `*ctl P ctl Q*`
 
 **You can view logs via Docker's container logs**
 
@@ -181,11 +188,6 @@ docker exec -it my-dse cqlsh
 See [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/) for further info on usage/configuration 
 
 
-**For example**
-
-```
-docker exec -it my-dse bash
-```
 ### Procedure for OpsCenter
 
 ### Starting OpsCenter
