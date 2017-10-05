@@ -8,7 +8,7 @@ and monitoring into a single unified platform. We power your
 apps' real-time moments so you can create instant insights 
 and delightful customer experiences.
 
-![](https://en.wikipedia.org/wiki/File:DataStax_Logo.png)
+![](https://upload.wikimedia.org/wikipedia/commons/e/e5/DataStax_Logo.png)
 
 ### Getting Started with DataStax and Docker
 
