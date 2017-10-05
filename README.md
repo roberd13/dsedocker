@@ -19,17 +19,12 @@ DSE-Docker is intended to be used for Development and testing purposes only. You
 Install Docker based on instructions found [here](https://docs.docker.com/engine/installation/) for your environment . 
 Understanding of Docker and containers
 
-### `Where to get the images`
-
-The images are available on Docker Hub as: [datastax/datastax-enterprise-node](https://hub.docker.com/r/datastax/datastax-enterprise-node) [datastax/datastax-enterprise-opscenter](https://hub.docker.com/r/datastax/datastax-enterprise-opscenter) [datastax/datastax-enterprise-studio](https://hub.docker.com/r/datastax/datastax-enterprise-studio)
-
-
-### `Usage`
+### `How to use the Images`
 
 In order to use these images, it is necessary to accept the terms of the DataStax license. This is done by setting the environment variable `DS_LICENSE` to the value accept when running containers based on the produced images. To show the license included in the images, set the variable `DS_LICENSE` to the value `accept`. *The images will not start without the variable set to the accept value.*
 
 
-### `Procedure for DSE`
+### `Starting DSE nodes`
 
 The image's entrypoint script runs the command dse cassandra and will append any switches you provide to that command. So it's possible to start DSE in any of the other supported modes by adding switches to the end of your docker run command.
 
@@ -188,9 +183,8 @@ docker exec -it my-dse cqlsh
 See [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/) for further info on usage/configuration 
 
 
-### `Procedure for OpsCenter`
 
-### Starting OpsCenter
+### `Starting a OpsCenter node`
 
 ```
 docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/datastax-enterprise-opscenter:6.5.0
@@ -206,9 +200,7 @@ Open your browser and point to `http://DOCKER_HOST_IP:8888`, create the new conn
 See [OpsCenter documentation](http://docs.datastax.com/en/opscenter/6.1/) for further info on usage/configuration.
 
 
-### `Procedure for Studio`
-
-### Starting Studio
+### `Starting a Studio container`
 
 ```
 docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d datastax/datastax-enterprise-studio:2.0.0
