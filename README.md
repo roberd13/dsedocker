@@ -150,7 +150,7 @@ docker exec -it <container_name> bash
 docker exec -it my-dse bash
 ```
 
-To exit the shell without stopping the container use `*ctl P ctl Q*`
+To exit the shell without stopping the container use *`ctl P ctl Q`*
 
 **You can view logs via Docker's container logs**
 
