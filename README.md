@@ -47,7 +47,7 @@ DSE start switches | Description
 
 By default, DSE will start in Cassandra only mode.
 
-Example: Start DSE in Cassandra only mode
+**Example: Start DSE in Cassandra only mode**
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4
