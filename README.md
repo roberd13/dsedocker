@@ -33,7 +33,7 @@ To take advantage of this feature, you will need to create a mount directory on 
 
 These files will override the existing config files.  The configs must contain all the values to be used and use the dse naming convention such as cassandra.yaml, dse.yaml, opscenterd.conf 
 
-For a full list of configuration files please visit <some link here>
+For a full list of configuration files please visit *some link here*
 
 
  
