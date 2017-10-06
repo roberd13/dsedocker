@@ -266,7 +266,7 @@ docker run -v <some_root_dir>:<container_volume>:<options>
 docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/mnt/conf datastax/datastax-enterprise-node:5.1.2
 ```
 
-Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume)for more information on mounting Volumes
+Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume) for more information on mounting Volumes
 
 # Using Docker Compose for Automated Provisioning
 
