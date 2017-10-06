@@ -29,7 +29,7 @@ The first which we call the Single Mount Option is a simple mechanism to let use
 
 The Second is by providing environment variables at runtime. The other two mechanisms; Docker file/directory volume mounts and overlay file systems are well documented by Docker. 
 
-## Single Mount Coniguration Management
+## Single Mount Configuration Management
 
 DataStax has made it easy to make configuration changes by creating a script that looks in the exposed Volume `/mnt/conf` for any added configuration files and loads them at container start. 
 
@@ -261,7 +261,7 @@ See [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/) for furt
 
 
 
-# Starting a OpsCenter node
+# Starting an OpsCenter node
 
 ```
 docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/datastax-enterprise-opscenter:6.5.0
