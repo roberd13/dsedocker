@@ -51,6 +51,8 @@ Docker Run Switches | Description
 -p | Publish containers ports to the host<BR>Optional : for DSE<BR>Required: for Opscenter and Studio</BR>
 -v | Optional: Bind Mount a Volume
 
+These are the most commonly used `docker run` switches used in deploying DSE.  For a full list please see [docker run](https://docs.docker.com/engine/reference/commandline/run/) reference.
+
 
 DSE start switches | Description
 ------------- | -------------
