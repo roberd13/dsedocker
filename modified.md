@@ -1,4 +1,4 @@
-# DataStax Platform Overview?
+# DataStax Platform Overview
 
 Built on the 
 best distribution of Apache Cassandra™, DataStax Enterprise is the always-on 
@@ -39,7 +39,9 @@ These files will override the existing configuration files.  The configs must co
 
 For a full list of configuration files please visit *some link here*
 
+```
 docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/mnt/conf datastax/datastax-enterprise-node:5.1.4
+```
 
 ## Configuration with Environment Variables
 
