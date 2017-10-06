@@ -46,12 +46,9 @@ The image's entrypoint script runs the command dse cassandra and will append any
 Docker Run Switches | Description
 ------------- | -------------
 --name | Optional: Assign a name to the container
--e | Sets environment variables 
- | Required: DS_LICENSE=accept for containers to start 
- | Optional: Other environment variables 
+-e | Sets environment variables <BR> Required: DS_LICENSE=accept for containers to start </BR> <BR> Optional: Other environment variables </BR>
 -d | Recommended: Starts the container in the background
--p | Publish containers ports to the host 
- | Optional : for DSE Required: for Opscenter and Studio
+-p | Publish containers ports to the host <BR> Optional : for DSE Required: for Opscenter and Studio </BR>
 -v | Optional: Bind Mount a Volume
 
 
