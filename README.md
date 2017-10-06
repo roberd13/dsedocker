@@ -47,11 +47,11 @@ Docker Run Switches | Description
 ------------- | -------------
 --name | Optional: Assign a name to the container
 -e | Sets environment variables 
-| Required: DS_LICENSE=accept for containers to start 
-| Optional: Other environment variables 
+ | Required: DS_LICENSE=accept for containers to start 
+ | Optional: Other environment variables 
 -d | Recommended: Starts the container in the background
 -p | Publish containers ports to the host 
-| Optional : for DSE Required: for Opscenter and Studio
+ | Optional : for DSE Required: for Opscenter and Studio
 -v | Optional: Bind Mount a Volume
 
 
