@@ -8,7 +8,7 @@
 * [Exposing Ports on the Docker Host](#exposing-ports-on-the-docker-host)
 * [Starting DSE nodes](#starting-dse-nodes)
 * [Container shell access and viewing Cassandra logs](#container-shell-access-and-viewing-cassandra-logs)
-* [Starting DSE Tools](starting-dse-tools)
+* [Starting DSE Tools](#starting-dse-tools)
 * [Starting an OpsCenter node](#starting-an-opscenter-node)
 * [Starting a Studio container](#starting-a-studio-container)
 * [Using Docker Compose for Automated Provisioning](#using-docker-compose-for-automated-provisioning)
