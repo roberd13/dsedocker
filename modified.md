@@ -1,3 +1,5 @@
+* [Optional](#optional)
+
 # DataStax Platform Overview
 
 Built on the 
