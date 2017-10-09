@@ -31,16 +31,16 @@ The Second is by providing environment variables at runtime. The other two mecha
 
 ## Single Mount Configuration Management
 
-DataStax has made it easy to make configuration changes by creating a script that looks in the exposed Volume `/mnt/conf` for any added configuration files and loads them at container start. 
+DataStax has made it easy to make configuration changes by creating a script that looks in the exposed Volume `/conf` for any added configuration files and loads them at container start. 
 
-To take advantage of this feature, you will need to create a mount directory on your host, mount your local directory to the exposed Volume `/mnt/conf`, place you modified configuration files in the mount directory on your host machine and start the container. 
+To take advantage of this feature, you will need to create a mount directory on your host, mount your local directory to the exposed Volume `/conf`, place you modified configuration files in the mount directory on your host machine and start the container. 
 
 These files will override the existing configuration files.  The configs must contain all the values to be used along with using the dse naming convention such as cassandra.yaml, dse.yaml, opscenterd.conf 
 
 For a full list of configuration files please visit *some link here*
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/mnt/conf datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/datastax-enterprise-node:5.1.4
 ```
 
 ## Configuration with Environment Variables
@@ -100,7 +100,7 @@ The following volumes are created and exposed with the images:
 * `/var/lib/dsefs`: Data from DSEFS
 * `/var/log/cassandra`: Logs from Cassandra
 * `/var/log/spark`: Logs from Spark
-* `/mnt/conf`: Directory to add custom config files for the container to pickup.
+* `/conf`: Directory to add custom config files for the container to pickup.
 
 **OpsCenter**
 
@@ -127,10 +127,10 @@ To mount a volume, you would use the `-v` flag with the docker run command when 
 ```
 docker run -v <some_root_dir>:<container_volume>:<options>
 ```
-**For example let’s mount the host directory /dse/conf on the exposed volume /mnt/conf**
+**For example let’s mount the host directory /dse/conf on the exposed volume /conf**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/mnt/conf datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/datastax-enterprise-node:5.1.4
 ```
 
 Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume) for more information on mounting Volumes
