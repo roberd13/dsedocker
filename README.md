@@ -2,17 +2,17 @@
 * [DataStax Platform Overview](#datastax-platform-overview)
 * [Getting Started with DataStax and Docker](#getting-started-with-datastax-and-docker)
 * [Prerequisites](#prerequisites)
-* [Configuration Managemen](#configuration-management)
-* [Single Mount Configuration Management](#single-mount-configuration-management)
+* [Configuration Management](#configuration-management)
 * [Configuration with Environment Variables](#configuration-with-environment-variables)
 * [Database and Data Storage](#database-and-data-storage)
 * [Exposing Ports on the Docker Host](#exposing-ports-on-the-docker-host)
 * [Starting DSE nodes](#starting-dse-nodes)
 * [Container shell access and viewing Cassandra logs](#container-shell-access-and-viewing-cassandra-logs)
-* [Starting DSE Tools](starting-dse-tools
+* [Starting DSE Tools](starting-dse-tools)
 * [Starting an OpsCenter node](#starting-an-opscenter-node)
 * [Starting a Studio container](#starting-a-studio-container)
 * [Using Docker Compose for Automated Provisioning](#using-docker-compose-for-automated-provisioning)
+
 
 
 
