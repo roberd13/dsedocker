@@ -73,7 +73,7 @@ docker run -v <some_root_dir>:<container_volume>:<options>
 **For example let’s mount the host directory /dse/conf/studio on the exposed volume /conf**
 
 ```
-docker run -e DS_LICENSE=accept --name my-studio -p 9091:9091 -d -v -v /dse/conf/studio:/conf datastax/datastax-enterprise-studio:2.0.0
+docker run -e DS_LICENSE=accept --name my-studio -p 9091:9091 -d -v /dse/conf/studio:/conf datastax/datastax-enterprise-studio:2.0.0
 
 ```
 
