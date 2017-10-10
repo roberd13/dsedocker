@@ -56,7 +56,7 @@ To exit the shell without stopping the container use *`ctl P ctl Q`*
 
 * `/var/lib/datastax-studio`: Studio data
 
-To persist data it is recommended that you pre-create directories and map them via the Docker run command to.
+To persist data it is recommended that you pre-create directories and map them via the Docker run command also.
 
 **DataStax recommends the following mounts be made** 
 
@@ -105,7 +105,7 @@ docker exec -it my-studio bash
 
 # Using Docker Compose for Automated Provisioning
 
-Bootstrapping a multi-node cluster with OpsCenter and Studio can be elegantly automated with [Docker Compose](https://docs.docker.com/compose/). You can get sample `compose.yml` file here *<link to>*
+Bootstrapping a multi-node cluster with DSE, OpsCenter and Studio can be elegantly automated with [Docker Compose](https://docs.docker.com/compose/). You can get sample `compose.yml` file here *<link to>*
 
 **3-Node Setup**
 
