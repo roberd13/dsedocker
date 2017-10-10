@@ -1,4 +1,4 @@
-#Short Description
+# Short Description
 The web-based visual management and monitoring solution for DataStax Enterprise (DSE). DataStax Entperprise Image is here *KAT ADD LINK TO STORE*
 
 # Supported Tags
