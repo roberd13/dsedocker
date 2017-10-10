@@ -38,6 +38,8 @@ DSE-Docker is intended to be used for Development purposes only. You can use the
 Install Docker based on instructions found [here](https://docs.docker.com/engine/installation/) for your environment . 
 Understanding of Docker and containers
 
+Before building you'll need to download the tarball(s) or provide a direct link(s). To get immediate and ongoing automated access sign up for a [DataStax Academy account](https://academy.datastax.com/). You can then use your DataStax Academy credentials for [direct access](http://downloads.datastax.com/enterprise/) to point releases. 
+
 
 # Configuration Management
 
