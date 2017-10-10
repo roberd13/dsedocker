@@ -31,7 +31,7 @@ and powerful customer experiences.
 
 # Getting Started with DataStax and Docker
 
-DSE-Docker is intended to be used for Development purposes only. You can use the Docker-DSE environment to learn DSE, OpsCenter and DataStax Studio, try new ideas, test and demonstrate your application.
+The DataStax provided docker images are intended to be used for Development purposes in non-production environments. You can use these images to learn DSE, OpsCenter and DataStax Studio, to try new ideas, and to test and demonstrate your application.
 
 # Prerequisites
 
