@@ -111,7 +111,7 @@ docker exec -it my-opscenter bash
 
 # Using Docker Compose for Automated Provisioning
 
-Bootstrapping a multi-node cluster with OpsCenter and Studio can be elegantly automated with [Docker Compose](https://docs.docker.com/compose/). You can get sample `compose.yml` file here<link to>
+Bootstrapping a multi-node cluster with DSE, OpsCenter, and Studio can be elegantly automated with [Docker Compose](https://docs.docker.com/compose/). You can get sample `compose.yml` file here<link to>
 
 **3-Node Setup**
 
