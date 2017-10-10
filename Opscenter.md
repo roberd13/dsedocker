@@ -89,7 +89,7 @@ docker run -e DS_LICENSE=accept --name my-opscenter datastax/datastax-enterprise
 Now you can start DSE nodes, providing the link to the opscenter Please see *[DSE instructions to be provided]()* for more detailed information on DSE
 
 ```
-ocker run -e DS_LICENSE=accept --link my-opscenter:opscenter --name my-dse -d datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --link my-opscenter:opscenter --name my-dse -d datastax/datastax-enterprise-node:5.1.4
 ```
 
 Open your browser and point to `http://DOCKER_HOST_IP:8888`, create the new connection: - Choose "Manage existing cluster" - Use my-dse as the host name - Choose "Install agents manually"
