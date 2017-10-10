@@ -95,7 +95,7 @@ docker run -e DS_LICENSE=accept --link my-opscenter:opscenter --name my-dse -d d
 Open your browser and point to `http://DOCKER_HOST_IP:8888`, create the new connection: - Choose "Manage existing cluster" - Use my-dse as the host name - Choose "Install agents manually"
 See [OpsCenter documentation](http://docs.datastax.com/en/opscenter/6.1/) for further info on usage/configuration.
 
-**Attaching to running container**
+# Attaching to running container
 
 If you used the -d flag to start you containers in the background, instead of using docker exec for individual commands you may want a bash shell to run commands. To do this use 
 
