@@ -38,7 +38,7 @@ The DataStax provided docker images are intended to be used for Development purp
 Install Docker based on instructions found [here](https://docs.docker.com/engine/installation/) for your environment . 
 Understanding of Docker and containers
 
-If you're building custom images based on the github repo, you'll need to download the tarball(s) or provide a direct link(s) (see the dockerfile). To get immediate and ongoing automated access sign up for a [DataStax Academy account](https://academy.datastax.com/). You can then use your DataStax Academy credentials for [direct access](http://downloads.datastax.com/enterprise/) to point releases. 
+If you're building custom images based on the github repo, you'll need a DataStax Academy Account. To sign up for a [DataStax Academy account](https://academy.datastax.com/). You then pass your DataStax Academy credentials to the build script
 
 
 # Configuration Management
