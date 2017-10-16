@@ -36,10 +36,9 @@ The DataStax provided docker images are intended to be used for Development purp
 # Prerequisites
 
 Install Docker based on instructions found [here](https://docs.docker.com/engine/installation/) for your environment . 
-Understanding of Docker and containers
+Understanding of Docker and containers.
 
-If you're building custom images based on the github repo, you'll need a DataStax Academy Account. To sign up for a [DataStax Academy account](https://academy.datastax.com/). You then pass your DataStax Academy credentials to the build script
-
+If you're building custom images based on the github repo, you'll need a DataStax Academy Account. To sign up for a [DataStax Academy account](https://academy.datastax.com/). You then pass your DataStax Academy credentials to the build script.  See the [Building](#building) section for more detailed information.
 
 # Configuration Management
 
