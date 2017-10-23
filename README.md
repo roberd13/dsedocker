@@ -12,8 +12,9 @@
 * [Starting an OpsCenter node](#starting-an-opscenter-node)
 * [Starting a Studio container](#starting-a-studio-container)
 * [Using Docker Compose for Automated Provisioning](#using-docker-compose-for-automated-provisioning)
-
-
+* [Building](#building)
+* [Getting Help](#getting-help)
+* [Licensing](#licensing)
 
 
 # DataStax Platform Overview
@@ -33,12 +34,14 @@ and powerful customer experiences.
 
 The DataStax provided docker images are intended to be used for Development purposes in non-production environments. You can use these images to learn DSE, OpsCenter and DataStax Studio, to try new ideas, and to test and demonstrate your application.
 
+
 # Prerequisites
 
 Install Docker based on instructions found [here](https://docs.docker.com/engine/installation/) for your environment . 
 Understanding of Docker and containers.
 
 If you're building custom images based on the github repo, you'll need a DataStax Academy Account. To sign up for a [DataStax Academy account](https://academy.datastax.com/). You then pass your DataStax Academy credentials to the build script.  See the [Building](#building) section for more detailed information.
+
 
 # Configuration Management
 
@@ -59,7 +62,7 @@ These files will override the existing configuration files.  The configs must co
 For a full list of configuration files please visit *some link here*
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/dse-server:5.1.4
 ```
 
 ## Configuration with Environment Variables
@@ -149,7 +152,7 @@ docker run -v <some_root_dir>:<container_volume>:<options>
 **For example let’s mount the host directory /dse/conf on the exposed volume /conf**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/dse-server:5.1.4
 ```
 
 Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume) for more information on mounting Volumes
@@ -161,7 +164,7 @@ Chances are you'll want to expose some ports on the Docker host so that you can 
 **For example**:
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d -p 9042:9042 datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d -p 9042:9042 datastax/dse-server:5.1.4
 ```
 
 This will expose the container's CQL client port (9042) on the host at port 9042. For a list of the ports used by DSE, see the [Securing DataStax Enterprise ports documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secFirewallPorts.html).
@@ -196,28 +199,28 @@ By default, DSE will start in Cassandra only mode.
 **Example: Start DSE in Cassandra only mode**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4
 ```
-You might replace 5.1.4 with any other version available at the [Docker Hub tags](https://hub.docker.com/u/datastax/datastax-enterprise-node/tags/).
+You might replace 5.1.4 with any other version available at the [Docker Hub tags](https://hub.docker.com/u/datastax/dse-server/tags/).
 
 **Example: Start a Graph Node**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4 -g
+docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -g
 In the container, this will run dse cassandra -g to start a graph node.
 ```
 
 **Example: Start an Analytics (Spark) Node**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4 -k
+docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -k
 In the container, this will run dse cassandra -k to start an analytics node.
 ```
 
 **Example: Start a Search Node**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4 -s
+docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -s
 In the container, this will run dse cassandra -s to start a search node.
 ```
 
@@ -283,13 +286,13 @@ See [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/) for furt
 # Starting an OpsCenter node
 
 ```
-docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/datastax-enterprise-opscenter:6.5.0
+docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/dse-opscenter:6.5.0
 ```
 
 Now you can start DSE nodes, providing the link to the opscenter
 
 ```
-docker run -e DS_LICENSE=accept --link my-opscenter:opscenter --name my-dse -d datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --link my-opscenter:opscenter --name my-dse -d datastax/dse-server:5.1.4
 ```
 
 Open your browser and point to `http://DOCKER_HOST_IP:8888`, create the new connection: - Choose "Manage existing cluster" - Use my-dse as the host name - Choose "Install agents manually"
@@ -299,7 +302,7 @@ See [OpsCenter documentation](http://docs.datastax.com/en/opscenter/6.1/) for fu
 # Starting a Studio container
 
 ```
-docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d datastax/datastax-enterprise-studio:2.0.0
+docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d datastax/dse-studio:2.0.0
 ```
 
 Open your browser and point to `http://DOCKER_HOST_IP:9091`, create the new connection using my-dse as the hostname. Check [Studio docs](http://docs.datastax.com/en/dse/5.1/dse-dev/datastax_enterprise/studio/stdToc.html) for further instructions.
@@ -333,3 +336,32 @@ docker-compose -f docker-compose.yml -f docker-compose.opscenter.yml -f docker-c
 ```
 docker-compose -f docker-compose.yml -f docker-compose.studio.yml up -d --scale node=0
 ```
+
+# Building
+
+The code in this repository will build the images listed above. To build all of them please run the following commands:
+
+```console
+./gradlew buildImages -PdownloadUsername=<your_DataStax_Acedemy_username> -PdownloadPassword=<your_DataStax_Acedemy_passwd>
+```
+
+By default, [Gradle](https://gradle.org) will download DataStax tarballs from [DataStax Academy](https://downloads.datastax.com).
+Therefore you need to provide your credentials either via the command line, or in `gradle.properties` file located
+in the project root.
+
+Run `./gradlew tasks` to get the list of all available tasks.
+
+# Getting Help
+
+If you are a customer of DataStax, please use the official support channels for any help you need.
+
+# License
+
+Please review the included LICENSE file.
+
+[datastax-enterprise]: http://www.datastax.com/products/datastax-enterprise
+[docker-hub-tags]: https://hub.docker.com/u/datastax/dse-server/tags/
+[start-dse]: http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/operations/startStop/startDseStandalone.html
+[dse-ports]: http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secFirewallPorts.html
+[opscenter-docs]: http://docs.datastax.com/en/opscenter/6.1/index.html
+[studio-docs]: http://docs.datastax.com/en/dse/5.1/dse-dev/datastax_enterprise/studio/stdToc.html
