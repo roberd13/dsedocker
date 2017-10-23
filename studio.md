@@ -32,7 +32,7 @@ The DataStax provided docker images are intended to be used for Development purp
 In order to use these images, it is necessary to accept the terms of the DataStax license. This is done by setting the environment variable `DS_LICENSE` to the value accept when running containers based on the produced images. To show the license included in the images, set the variable `DS_LICENSE` to the value `accept`. *The images will not start without the variable set to the accept value.*
 
 ```
-docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d datastax/datastax-enterprise-studio:2.0.0
+docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d datastax/dse-studio:2.0.0
 
 ```
 
@@ -73,7 +73,7 @@ docker run -v <some_root_dir>:<container_volume>:<options>
 **For example let’s mount the host directory /dse/conf/studio on the exposed volume /conf**
 
 ```
-docker run -e DS_LICENSE=accept --name my-studio -p 9091:9091 -d -v /dse/conf/studio:/conf datastax/datastax-enterprise-studio:2.0.0
+docker run -e DS_LICENSE=accept --name my-studio -p 9091:9091 -d -v /dse/conf/studio:/conf datastax/dse-studio:2.0.0
 
 ```
 
@@ -83,7 +83,7 @@ Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorial
 # Starting a Studio container
 
 ```
-docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d datastax/datastax-enterprise-studio:2.0.0
+docker run -e DS_LICENSE=accept --link my-dse --name my-studio -p 9091:9091 -d datastax/dse-studio:2.0.0
 ```
 
 Open your browser and point to `http://DOCKER_HOST_IP:9091`, create the new connection using my-dse as the hostname. Check [Studio docs](http://docs.datastax.com/en/dse/5.1/dse-dev/datastax_enterprise/studio/stdToc.html) for further instructions.
@@ -130,3 +130,4 @@ docker-compose -f docker-compose.yml -f docker-compose.opscenter.yml -f docker-c
 ```
 docker-compose -f docker-compose.yml -f docker-compose.studio.yml up -d --scale node=0
 ```
+
