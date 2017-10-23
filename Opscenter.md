@@ -32,7 +32,7 @@ The DataStax provided docker images are intended to be used for Development purp
 In order to use these images, it is necessary to accept the terms of the DataStax license. This is done by setting the environment variable `DS_LICENSE` to the value accept when running containers based on the produced images. To show the license included in the images, set the variable `DS_LICENSE` to the value `accept`. *The images will not start without the variable set to the accept value.*
 
 ```
-docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/datastax-enterprise-opscenter:6.1.3
+docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/dse-opscenter:6.1.3
 ```
 
 # Single Mount Configuration Management
@@ -46,7 +46,7 @@ These files will override the existing configuration files.  The configs must co
 For a full list of configuration files please visit *some link here*
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse --name my-opscenter -d -p 8888:8888 -v datastax/datastax-enterprise-opscenter:6.1.3
+docker run -e DS_LICENSE=accept --name my-dse --name my-opscenter -d -p 8888:8888 -v datastax/dse-opscenter:6.1.3
 ```
 
  # Database and Data Storage
@@ -74,7 +74,7 @@ docker run -v <some_root_dir>:<container_volume>:<options>
 **For example let’s mount the host directory /dse/conf/opscenter on the exposed volume /conf**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf/opscenter:/conf datastax/datastax-enterprise-opscenter:6.1.3
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf/opscenter:/conf datastax/dse-opscenter:6.1.3
 ```
 
 Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume) for more information on mounting Volumes
@@ -83,13 +83,13 @@ Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorial
 # Starting an OpsCenter node
 
 ```
-docker run -e DS_LICENSE=accept --name my-opscenter datastax/datastax-enterprise-opscenter:6.1.3
+docker run -e DS_LICENSE=accept --name my-opscenter datastax/dse-opscenter:6.1.3
 ```
 
 Now you can start DSE nodes, providing the link to the opscenter Please see *[DSE instructions to be provided]()* for more detailed information on DSE
 
 ```
-docker run -e DS_LICENSE=accept --link my-opscenter:opscenter --name my-dse -d datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --link my-opscenter:opscenter --name my-dse -d datastax/dse-server:5.1.4
 ```
 
 Open your browser and point to `http://DOCKER_HOST_IP:8888`, create the new connection: - Choose "Manage existing cluster" - Use my-dse as the host name - Choose "Install agents manually"
@@ -111,28 +111,3 @@ docker exec -it my-opscenter bash
 
 # Using Docker Compose for Automated Provisioning
 
-Bootstrapping a multi-node cluster with DSE, OpsCenter, and Studio can be elegantly automated with [Docker Compose](https://docs.docker.com/compose/). You can get sample `compose.yml` file here<link to>
-
-**3-Node Setup**
-
-```
-docker-compose up -d --scale node=2
-```
-
-**3-Node Setup with OpsCenter**
-
-```
-docker-compose -f docker-compose.yml -f docker-compose.opscenter.yml up -d --scale node=2
-```
-
-**3-Node Setup with OpsCenter and Studio**
-
-```
-docker-compose -f docker-compose.yml -f docker-compose.opscenter.yml -f docker-compose.studio.yml up -d --scale node=2
-```
-
-**Single Node Setup with Studio**
-
-```
-docker-compose -f docker-compose.yml -f docker-compose.studio.yml up -d --scale node=0
-```
