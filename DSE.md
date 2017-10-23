@@ -32,7 +32,7 @@ and powerful customer experiences.
 
 # Getting Started with DataStax and Docker
 
-The DataStax provided docker images are intended to be used for Development purposes in non-production environments. You can use these images to learn [DSE](LINK)*KAT PROVIDE, OpsCenter and [DataStax Studio]*LINK KAT PROVIDE, to try new ideas, and to test and demonstrate your application.
+The DataStax provided docker images are intended to be used for Development purposes in non-production environments. You can use these images to learn [DSE](LINK)*KAT PROVIDE, OpsCenter and [DataStax Studio]*LINK KAT PROVIDE, to try new ideas, to test and demonstrate your application.
 
 
 
@@ -47,7 +47,7 @@ These files will override the existing configuration files.  The configs must co
 For a full list of configuration files please visit *some link here*
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/dse-server:5.1.4
 ```
 
 ## Configuration with Environment Variables
@@ -64,7 +64,7 @@ In order to use these images, it is necessary to accept the terms of the DataSta
 
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/dse-server:5.1.4
 
 ```
 
@@ -132,7 +132,7 @@ docker run -v <some_root_dir>:<container_volume>:<options>
 **For example let’s mount the host directory /dse/conf on the exposed volume /conf**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d  -v /dse/conf:/conf datastax/dse-server:5.1.4
 ```
 
 Please referece the [Docker volumes doc](https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume) for more information on mounting Volumes
@@ -144,7 +144,7 @@ Chances are you'll want to expose some ports on the Docker host so that you can 
 **For example**:
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d -p 9042:9042 datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d -p 9042:9042 datastax/dse-server:5.1.4
 ```
 
 This will expose the container's CQL client port (9042) on the host at port 9042. For a list of the ports used by DSE, see the [Securing DataStax Enterprise ports documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secFirewallPorts.html).
@@ -179,28 +179,28 @@ By default, DSE will start in Cassandra only mode.
 **Example: Start DSE in Cassandra only mode**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4
+docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4
 ```
-You might replace 5.1.4 with any other version available at the [Docker Hub tags](https://hub.docker.com/u/datastax/datastax-enterprise-node/tags/).
+You might replace 5.1.4 with any other version available at the [Docker Hub tags](https://hub.docker.com/u/datastax/dse-server/tags/).
 
 **Example: Start a Graph Node**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4 -g
+docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -g
 In the container, this will run dse cassandra -g to start a graph node.
 ```
 
 **Example: Start an Analytics (Spark) Node**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4 -k
+docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -k
 In the container, this will run dse cassandra -k to start an analytics node.
 ```
 
 **Example: Start a Search Node**
 
 ```
-docker run -e DS_LICENSE=accept --name my-dse -d datastax/datastax-enterprise-node:5.1.4 -s
+docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -s
 In the container, this will run dse cassandra -s to start a search node.
 ```
 
@@ -288,3 +288,5 @@ docker-compose -f docker-compose.yml -f docker-compose.opscenter.yml -f docker-c
 ```
 docker-compose -f docker-compose.yml -f docker-compose.studio.yml up -d --scale node=0
 ```
+
+
