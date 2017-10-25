@@ -54,7 +54,7 @@ Option | Description
 These are the most commonly used `docker run` switches used in deploying DSE.  For a full list please see [docker run](https://docs.docker.com/engine/reference/commandline/run/) reference.
 ## Enabling advanced functionality
 By default, the DSE server image is set up as a transactional (database) node.
-To set up the node with DSE advanced functionality, add the DSE server type option to the end of the `docker run` command.
+To set up the node with DSE advanced functionality, add the option that enables feature to the end of the `docker run` command.
 
 DSE start switches | Description
 ------------- | -------------
@@ -62,7 +62,10 @@ DSE start switches | Description
 -k | Enables and starts Analytics.
 -g | Enables and starts a DSE Graph.
 
+You can combine the options to run more than one feature. For more examples, see the Starting [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/operations/startStop/startDseStandalone.html).
+
 ##Examples
+
 ###Create a DSE database container
 
 
@@ -74,24 +77,19 @@ docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -g
-In the container, this will run dse cassandra -g to start a graph node.
 ```
 
 ###Create a DSE container with Analytics (Spark) enabled
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -k
-In the container, this will run dse cassandra -k to start an analytics node.
 ```
 
-###Create a DSE with Search enabled**
+###Create a DSE container with Search enabled
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -s
-In the container, this will run dse cassandra -s to start a search node.
 ```
-
-You can also use combinations of those switches. For more examples, see the Starting [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/operations/startStop/startDseStandalone.html).
 
 ## Managing the configuration
 
@@ -161,9 +159,9 @@ DSE images expose the following volumes.
 * For Studio: `/var/lib/datastax-studio`
 
 ### Preserving data
-To persist data, pre-create directories on the local host and map the directory to the corresponding volumn using the docker run `-v` flag. 
+To persist data, pre-create directories on the local host and map the directory to the corresponding volume using the docker run `-v` flag. 
 
-**NOTE:** If the volumnes are not mounted from the local host, all data is lost when the container is removed.
+**NOTE:** If the volumes are not mounted from the local host, all data is lost when the container is removed.
 
 * DSE Transactional, Search, Graph, and Analytics nodes:
  * `/var/lib/cassandra/data`  
@@ -189,7 +187,7 @@ See [Docker's Use volumes](https://docs.docker.com/engine/tutorials/dockervolume
 
 ## Exposing DSE public ports
 
-To allow remote hosts to access a DataStax Enterprise node, OpsCenter, or Studio, map the DSE pulbic port to a host port using the docker run `-p` flag. 
+To allow remote hosts to access a DataStax Enterprise node, OpsCenter, or Studio, map the DSE public port to a host port using the docker run `-p` flag. 
 
 For a complete list of ports see [Securing DataStax Enterprise ports](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secFirewallPorts.html#secFirewallPorts).
  
@@ -207,7 +205,7 @@ Use the `docker exec -it <container_name>` command to run DSE tools and other op
 
 ## Opening an interactive bash shell
 
-If the container is running in the background (using the `-d`), use the following command to open an interactive bash shell to run DSE ommands. 
+If the container is running in the background (using the `-d`), use the following command to open an interactive bash shell to run DSE commands. 
 
 ```
 docker exec -it <container_name> bash
@@ -336,13 +334,15 @@ Run `./gradlew tasks` to get the list of all available tasks.
 
 If you are a customer of DataStax, please use the official support channels for any help you need.
 
+[datastax-enterprise](http://www.datastax.com/products/datastax-enterprise)
+[docker-hub-tags](https://hub.docker.com/u/datastax/dse-server/tags/)
+[start-dse](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/operations/startStop/startDseStandalone.html)
+[dse-ports](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secFirewallPorts.html)
+[opscenter-docs](http://docs.datastax.com/en/opscenter/6.1/index.html)
+[studio-docs](http://docs.datastax.com/en/dse/5.1/dse-dev/datastax_enterprise/studio/stdToc.html)
+
+
 # License
 
 Please review the included LICENSE file.
 
-[datastax-enterprise]: http://www.datastax.com/products/datastax-enterprise
-[docker-hub-tags]: https://hub.docker.com/u/datastax/dse-server/tags/
-[start-dse]: http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/operations/startStop/startDseStandalone.html
-[dse-ports]: http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secFirewallPorts.html
-[opscenter-docs]: http://docs.datastax.com/en/opscenter/6.1/index.html
-[studio-docs]: http://docs.datastax.com/en/dse/5.1/dse-dev/datastax_enterprise/studio/stdToc.html
