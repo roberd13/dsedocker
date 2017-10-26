@@ -52,10 +52,10 @@ Use the following options to set up a DataStax Enterprise server container.
 
 Option | Description
 ------------- | -------------
-`-e` | (**Required**) Sets [Environment variables](#Using-environment-variables) to accept the licensing agreement and <BR> (optional) change the initial configuration.
+`-e` | (**Required**) Sets [Environment variables](#using-environment-variables) to accept the licensing agreement and <BR> (optional) change the initial configuration.
 `-d` | (Recommended) Starts the container in the background.
-`-p` | Publish container ports on the host computer to allow remote access to DSE, OpsCenter, and Studio. See [Exposing DSE public ports](#Exposing-DSE-public-ports)
-`-v` | Bind mount a directory on the local host to a DSE Volume to manage configuration or preserve data. See [Volumes and data](#Volumes-and-data). 
+`-p` | Publish container ports on the host computer to allow remote access to DSE, OpsCenter, and Studio. See [Exposing DSE public ports](#exposing-dse-public-ports)
+`-v` | Bind mount a directory on the local host to a DSE Volume to manage configuration or preserve data. See [Volumes and data](#volumes-and-data). 
 `--name` |Assigns a name to the container.
 
 These are the most commonly used `docker run` switches used in deploying DSE.  For a full list please see [docker run](https://docs.docker.com/engine/reference/commandline/run/) reference.
