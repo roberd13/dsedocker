@@ -2,10 +2,17 @@
 * [DataStax Platform overview](#datastax-platform-overview)
 * [Getting started with DataStax and Docker](#getting-started-with-datastax-and-docker)
 * [Prerequisites](#prerequisites)
+* [Docker run options](#docker-run-options)
 * [Enabling advanced functionality](#enabling-advanced-functionality)
+* [DSE Examples](#examples)
+* [Managing the configuration](managing-the-configuration)
+* [Using the DSE conf volume](#using-the-dse-conf-volume)
+* [Using environment variables](#using-environment-variables)
 * [Volumes and data](#volumes-and-data)
-* [Starting an OpsCenter node](#starting-an-opscenter-node)
-* [Starting a Studio container](#starting-a-studio-container)
+* [Exposing DSE public ports](#exposing-dse-public-ports)
+* [Running DSE commands and viewing logs](#running-dse-commands-and-viewing-logs)
+* [Creating an OpsCenter container(creating-an-opscenter-container)
+* [Creating a Studio container](#creating-a-studio-container)
 * [Using Docker Compose for automated provisioning](#using-docker-compose-for-automated-provisioning)
 * [Building](#building)
 * [Getting Help](#getting-help)
@@ -95,9 +102,9 @@ docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -s
 
 Manage the DSE configuration using one of the following options:  
 
-* [DSE configuration volume](#Using-the-DSE-conf-volume) use configuration files from a mounted host directory without replacing or customizing the containers. 
+* [DSE configuration volume](#using-the-dse-conf-volume) use configuration files from a mounted host directory without replacing or customizing the containers. 
 
-* [DSE environment variables](#Using-environment-variables) that change the configuration at runtime. 
+* [DSE environment variables](#using-environment-variables) that change the configuration at runtime. 
 
 * Docker file/directory volume mounts<@Kat insert link to this doc>
 
