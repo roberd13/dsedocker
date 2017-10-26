@@ -197,7 +197,7 @@ For a complete list of ports see [Securing DataStax Enterprise ports](http://doc
 
 To allow access to the OpsCenter from browser on a remote host, open port `8888`:  
 ```
-docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/dse-opscenter:6.5.0
+docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/dse-opscenter:6.1.3
 ```
 
 # Running DSE commands and viewing logs
@@ -257,7 +257,7 @@ See [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/) for furt
 # Creating an OpsCenter container
 1. Create an OpsCenter container:
 ```
-docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/dse-opscenter:6.5.0
+docker run -e DS_LICENSE=accept --name my-opscenter -d -p 8888:8888 datastax/dse-opscenter:6.1.3
 ```
 Where the container name is my-opscenter and the version is 6.5.0. For a list of available OpsCenter versions <<add link here>>
 
