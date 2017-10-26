@@ -2,7 +2,7 @@
 * [DataStax Platform overview](#datastax-platform-overview)
 * [Getting started with DataStax and Docker](#getting-started-with-datastax-and-docker)
 * [Prerequisites](#prerequisites)
-* [Managing the configuration](##Managing-the-configuration)
+* [Enabling advanced functionality](##Enabling advanced functionality)
 * [Running DSE commands and viewing logs](#Running-DSE-commands-and-viewing-logs)
 * [Starting an OpsCenter node](#starting-an-opscenter-node)
 * [Starting a Studio container](#starting-a-studio-container)
@@ -64,28 +64,28 @@ DSE start switches | Description
 
 You can combine the options to run more than one feature. For more examples, see the Starting [DSE documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/operations/startStop/startDseStandalone.html).
 
-##Examples
+## Examples
 
-###Create a DSE database container
+### Create a DSE database container
 
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4
 ```
 
-###Create a DSE container with Graph enabled
+### Create a DSE container with Graph enabled
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -g
 ```
 
-###Create a DSE container with Analytics (Spark) enabled
+### Create a DSE container with Analytics (Spark) enabled
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -k
 ```
 
-###Create a DSE container with Search enabled
+### Create a DSE container with Search enabled
 
 ```
 docker run -e DS_LICENSE=accept --name my-dse -d datastax/dse-server:5.1.4 -s
