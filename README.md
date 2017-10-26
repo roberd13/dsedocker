@@ -2,7 +2,7 @@
 * [DataStax Platform overview](#datastax-platform-overview)
 * [Getting started with DataStax and Docker](#getting-started-with-datastax-and-docker)
 * [Prerequisites](#prerequisites)
-* [Managing the configuration](#Managing-the-configuration)
+* [Managing the configuration](##Managing-the-configuration)
 * [Running DSE commands and viewing logs](#Running-DSE-commands-and-viewing-logs)
 * [Starting an OpsCenter node](#starting-an-opscenter-node)
 * [Starting a Studio container](#starting-a-studio-container)
