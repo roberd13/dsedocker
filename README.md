@@ -11,7 +11,7 @@
 * [Volumes and data](#volumes-and-data)
 * [Exposing DSE public ports](#exposing-dse-public-ports)
 * [Running DSE commands and viewing logs](#running-dse-commands-and-viewing-logs)
-* [Creating an OpsCenter container(creating-an-opscenter-container)
+* [Creating an OpsCenter container](creating-an-opscenter-container)
 * [Creating a Studio container](#creating-a-studio-container)
 * [Using Docker Compose for automated provisioning](#using-docker-compose-for-automated-provisioning)
 * [Building](#building)
