@@ -2,7 +2,7 @@
 * [DataStax Platform overview](#datastax-platform-overview)
 * [Getting started with DataStax and Docker](#getting-started-with-datastax-and-docker)
 * [Prerequisites](#prerequisites)
-* [Docker run options](#docker-run-options)
+* [Creating a DataStax Enterprise container](#creating-a-datastax-enterprise-container)
 * [Enabling advanced functionality](#enabling-advanced-functionality)
 * [DSE Examples](#examples)
 * [Managing the configuration](managing-the-configuration)
@@ -45,7 +45,7 @@ Use DataStax provided Docker images in non-production environments for developme
 
 * When [building](#building) custom images from the DataStax github repository, a [DataStax Academy account](https://academy.datastax.com/). 
 
-#Creating a DataStax Enterprise container
+# Creating a DataStax Enterprise container
 Use the options describe in this section to create DataStax Enterprise server containers. For a list of available DSE versions see [Docker Hub tags](https://hub.docker.com/u/datastax/dse-server/tags/). 
 ## Docker run options
 Use the following options to set up a DataStax Enterprise server container. 
