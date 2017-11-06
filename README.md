@@ -310,7 +310,7 @@ docker inspect my-dse | grep '"IPAddress":'
 
 4. Open a browser and point to `http://DOCKER_HOST_IP:8888`. The *Create the new connection* dialog displays.
 5. Click **Manage existing cluster**.
-6. Enter *my-dse* as the host name. 
+6. Enter ipaddress obatained in step 3 as the host name. 
 7. Choose **Install agents manually**.
 
 The agent is already available on the DSE node, no installation is required.
