@@ -35,8 +35,8 @@ Use DataStax provided Docker images to create containers in non-production envir
 
 * Docker Store (log in to Docker store and subscribe to the image):
     * [DataStax Enterprise](https://store.docker.com/images/datastax): The best distribution of Apache Cassandra™ with integrated Search, Analytics, and Graph capabilities.
-    * These images are still in development. How we make these images available is also still under consideration. We are currently providing DSE-Server in Docker Store. Each user or company must subscribe to the image (free) one time. Go here, click subscribe, fill out the form, and you’ll be given a docker pull command that will is valid for that user account. No other interaction with Docker Store will be required.
-    <br>Although we expect additional changes during this trial period, our hope is to go to production with as few ongoing changes as possible.
+    * These images are still in development. How we make these images available is also still under consideration. We are currently providing DSE-Server in Docker Store. Each user or company must subscribe to the image (free) one time. Go here, click subscribe, fill out the form, and you’ll be given a docker pull command that will is valid for that user account. No other interaction with Docker Store will be required. --
+   Although we expect additional changes during this trial period, our hope is to go to production with as few ongoing changes as possible. --
    <br> We want to hear your opinion on this. Please tell us what user experience you expect by reaching out to us at techpartner@datastax.com
 
    * When pulling the image you will need to login with the DockerID you used to subscribe to the image.
