@@ -38,7 +38,7 @@ Use DataStax provided Docker images to create containers in non-production envir
 
     * When pulling the image you will need to login with the DockerID you used to subscribe to the image.
 
-    * Example
+Example
 
 ```
 docker login
@@ -46,16 +46,16 @@ Login with your Docker ID to push and pull images from Docker Hub. If you don't 
 Username: 
 Password: 
 Login Succeeded
-
 ```
 
-    * You are now able to pull the image
 
-    * Although we expect additional changes during this trial period, our hope is to go to production with as few ongoing changes as possible.
+   * You are now able to pull the image
 
-    * We want to hear your opinion on this. Please tell us what user experience you expect by reaching out to us at techpartner@datastax.com
+   * Although we expect additional changes during this trial period, our hope is to go to production with as few ongoing changes as possible.
 
-    * [DataStax Enterprise](https://store.docker.com/images/datastax): The best distribution of Apache Cassandra™ with integrated Search, Analytics, and Graph capabilities.
+   * We want to hear your opinion on this. Please tell us what user experience you expect by reaching out to us at techpartner@datastax.com
+
+   * [DataStax Enterprise](https://store.docker.com/images/datastax): The best distribution of Apache Cassandra™ with integrated Search, Analytics, and Graph capabilities.
 
 * Docker Hub:
    * [DataStax Studio](https://hub.docker.com/r/datastax/dse-studio/): An interactive developer’s tool for DataStax Enterprise which is designed to help your DSE database, Cassandra Query Language (CQL), DSE Graph, and Gremlin Query Language development.
